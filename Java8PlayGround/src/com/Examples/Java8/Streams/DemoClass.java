@@ -50,6 +50,7 @@ public class DemoClass {
 
 
 		System.out.println("Flat map example::");
+		System.out.println("Flat map example::");
 
 		books.stream()
 				.flatMap(b -> b.getAuthor().stream().sorted(Comparator.comparing(Author::getBooksPublished))
