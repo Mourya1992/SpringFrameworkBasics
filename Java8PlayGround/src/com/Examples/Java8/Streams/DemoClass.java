@@ -1,10 +1,17 @@
 package com.Examples.Java8.Streams;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.TemporalUnit;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.IntStream;
-
+import java.util.stream.Stream;
 
 public class DemoClass {
 
@@ -49,13 +56,30 @@ public class DemoClass {
 		books.stream().sorted(comparator).forEach(System.out::println);
 
 
+
 		System.out.println("Flat map example::");
 		System.out.println("Flat map example::");
+
 
 		books.stream()
 				.flatMap(b -> b.getAuthor().stream().sorted(Comparator.comparing(Author::getBooksPublished))
 						.filter(k -> k.getName().startsWith("J")).map(k -> k.getEmailId()))
 				.forEach(System.out::println);
+
+		System.out.println("Date Time API");
+
+		LocalDate date = LocalDate.ofYearDay(2021, 34);
+		System.out.println("Date is ::" + date);
+		System.out.println("Day of the week is:" + date.getDayOfWeek());
+
+		LocalDateTime time = LocalDateTime.of(2021, Month.APRIL, 25, 3, 30, 47, 00);
+
+		System.out.println(time.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")));
+		LocalDate tomorrow = date.plusDays(1);
+
+		System.out.println("tomorrow:" + tomorrow.isAfter(date));
+		
+		Stream.iterate(0, n->n+2).limit(20).forEach(System.out::println);
 	}
 
 }
