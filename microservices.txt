@@ -1,0 +1,40 @@
+{
+"id": 12,
+"name": "book",
+"quantity": 10,
+"price": 200
+}
+
+
+
+{
+    "id": 1234,
+    "transactionId": "abcdefgh12erf",
+    "status": "Success"
+}
+
+Urls basic:
+
+http://localhost:9002/MauryaApp/placeorder
+
+
+with Api Gate way:
+
+http://localhost:9003/ORDER-SERVICE/orderApi/placeorder
+http://localhost:9003/PAYMENT-SERVICE/PayTM/payments
+
+Custom API gateway Routes:
+
+http://localhost:9003/orderApi/orders
+http://localhost:9003/orderApi/placeorder
+http://localhost:9003/PayTM/payments
+
+
+server.port=8761
+
+
+eureka.client.register-with-eureka=false
+eureka.client.fetch-registry=false
+
+logging.level.com.netflix.eureka=OFF
+logging.level.com.netflix.discovery=OFF
